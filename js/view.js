@@ -2,10 +2,7 @@ define(function (require) {
 
     "use strict";
 
-    var $                   = require('jquery'),
-        _                   = require('underscore'),
-        ArchiveView         = require('core/views/archive'),
-        ThemeTplTags        = require('core/theme-tpl-tags');
+    var ArchiveView         = require('core/views/archive');
 
     return ArchiveView.extend({
 

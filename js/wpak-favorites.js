@@ -2,11 +2,9 @@ define(function (require) {
 
     "use strict";
 
-    var $                   = require('jquery'),
-        _                   = require('underscore'),
-        Backbone            = require('backbone'),
+    var _                   = require( 'underscore' ),
         App                 = require( 'core/app' ),
-        Favorites           = require('core/models/favorites');
+        Favorites           = require( 'addons/wpak-addon-favorites/js/model' );
 
     var wpak_favorites = {};
 
