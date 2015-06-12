@@ -13,6 +13,9 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
 
         public static function hooks() {
             add_filter( 'wpak_addons', array( __CLASS__, 'wpak_addons' ) );
+
+            // 11 to pass after WP-AppKit components declaration
+            add_action( 'plugins_loaded', array( __CLASS__, 'plugins_loaded' ), 11 );
         }
 
         public static function wpak_addons( $addons ) {
@@ -25,6 +28,10 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
             $addons[] = $addon;
 
             return $addons;
+        }
+
+        public static function plugins_loaded() {
+            require_once dirname( __FILE__ ) . '/component-type.php';
         }
 
     }
