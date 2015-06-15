@@ -9,7 +9,7 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
 
     class WpAppKitFavorites {
 
-        const slug = 'wp-appkit-favorites';
+        const slug = 'wpak-addon-favorites';
 
         public static function hooks() {
             add_filter( 'wpak_addons', array( __CLASS__, 'wpak_addons' ) );
