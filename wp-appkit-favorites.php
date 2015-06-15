@@ -24,6 +24,7 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
             $addon->set_location( __FILE__ );
 
             $addon->add_js( 'js/wpak-favorites.js', 'module' );
+            $addon->add_js( 'js/wpak-favorites-app.js', 'theme', 'before' );
 
             $addons[] = $addon;
 
