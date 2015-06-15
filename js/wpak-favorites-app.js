@@ -34,5 +34,12 @@ define( [ 'core/lib/hooks', 'addons/wpak-addon-favorites/wpak-favorites' ], func
         return screen_view_data;
     });
 
-});
+    Hooks.addFilter( 'custom-view', function( customView, view_type ) {
+        if( 'favorites' === view_type ) {
+            customView = 'addons/wpak-addon-favorites/js/view';
+        }
 
+        return customView;
+    });
+
+});
