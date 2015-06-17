@@ -1,4 +1,4 @@
-define( [ 'core/lib/hooks', 'addons/wpak-addon-favorites/js/wpak-favorites' ], function( Hooks, WpakFavorites ) {
+define( [ 'core/lib/hooks', 'core/app-utils', 'addons/wpak-addon-favorites/js/wpak-favorites' ], function( Hooks, Utils, WpakFavorites ) {
 
     Hooks.addFilter( 'component-data', function( component_data, component ) {
         var component_type = component.get( 'type' );
