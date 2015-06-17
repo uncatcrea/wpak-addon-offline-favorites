@@ -43,7 +43,7 @@ define( [ 'core/lib/hooks', 'addons/wpak-addon-favorites/js/wpak-favorites' ], f
     });
 
     Hooks.addAction( 'components-fetched', function( components, response, options, deferred ) {
-        app.favorites.fetch({
+        WpakFavorites.favorites.fetch({
             'success': function( appFavorites, response, options ) {
                 Utils.log( 'Favorites retrieved from local storage.', { favorites: appFavorites } );
                 deferred.resolve();
