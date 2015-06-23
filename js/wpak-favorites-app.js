@@ -1,4 +1,4 @@
-define( [ 'core/lib/hooks', 'core/app-utils', 'addons/wpak-addon-favorites/js/wpak-favorites' ], function( Hooks, Utils, WpakFavorites ) {
+define( [ 'core/theme-app', 'core/lib/hooks', 'core/app-utils', 'addons/wpak-addon-favorites/js/wpak-favorites' ], function( App, Hooks, Utils, WpakFavorites ) {
 
     Hooks.addFilter( 'component-data', function( component_data, component ) {
         var component_type = component.get( 'type' );
@@ -54,5 +54,7 @@ define( [ 'core/lib/hooks', 'core/app-utils', 'addons/wpak-addon-favorites/js/wp
             }}
         );
     });
+
+    App.on( 'refresh:end', WpakFavorites.addFavoritesToGlobals );
 
 });

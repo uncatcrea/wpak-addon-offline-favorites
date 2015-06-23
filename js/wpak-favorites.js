@@ -4,6 +4,7 @@ define(function (require) {
 
     var _                   = require( 'underscore' ),
         App                 = require( 'core/app' ),
+        Utils               = require( 'core/app-utils' ),
         Favorites           = require( 'addons/wpak-addon-favorites/js/model' );
 
     var wpak_favorites = {};
@@ -80,6 +81,18 @@ define(function (require) {
         }
 
         return isFavorite;
+    };
+
+    /**
+     * Add favorite posts objects to the core's global var.
+     * This ensures that an user still can see a single post that has been removed from the sync webservice.
+     */
+    wpak_favorites.addFavoritesToGlobals = function() {
+        _.each( wpak_favorites.favorites.toJSON(), function( item, index ) {
+            App.addGlobalItem( item.global, item );
+        });
+
+        Utils.log( 'Favorites added to globals', { globals: App.globals } );
     };
 
     return wpak_favorites;
