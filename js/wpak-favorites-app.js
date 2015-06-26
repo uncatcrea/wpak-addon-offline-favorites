@@ -42,6 +42,18 @@ define( [ 'core/theme-app', 'core/app-utils', 'addons/wpak-addon-favorites/js/wp
         return customView;
     });
 
+    App.filter( 'post-global', function( global, id ) {
+        // If global isn't returned by app.getCurrentScreenGlobal, it could be in favorites list
+        if( '' == global ) {
+            var post = WpakFavorites.favorites.get( id );
+            if( undefined !== post ) {
+                global = post.get( 'global' );
+            }
+        }
+
+        return global;
+    });
+
     App.action( 'components-fetched', function( components, response, options, deferred ) {
         WpakFavorites.favorites.fetch({
             'success': function( appFavorites, response, options ) {
