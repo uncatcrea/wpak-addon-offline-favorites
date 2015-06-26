@@ -33,10 +33,10 @@ define(function (require) {
             this.reset();
         },
         onAdd : function( model ) {
-            if( undefined === model.get( 'add_date' ) ) {
+            if( "" === model.get( 'add_date' ) ) {
                 model.set( 'add_date', Math.round( Date.now() / 1000 ) );
-                this.sort();
             }
+            this.sort();
         },
         onRemove : function( model ) {
             model.destroy();
