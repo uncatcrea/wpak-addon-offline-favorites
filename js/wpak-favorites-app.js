@@ -1,6 +1,6 @@
-define( [ 'core/theme-app', 'core/lib/hooks', 'core/app-utils', 'addons/wpak-addon-favorites/js/wpak-favorites' ], function( App, Hooks, Utils, WpakFavorites ) {
+define( [ 'core/theme-app', 'core/app-utils', 'addons/wpak-addon-favorites/js/wpak-favorites' ], function( App, Utils, WpakFavorites ) {
 
-    Hooks.addFilter( 'component-data', function( component_data, component ) {
+    App.filter( 'component-data', function( component_data, component ) {
         var component_type = component.get( 'type' );
 
         if( 'favorites' === component_type ) {
@@ -16,13 +16,13 @@ define( [ 'core/theme-app', 'core/lib/hooks', 'core/app-utils', 'addons/wpak-add
         return component_data;
     });
 
-    Hooks.addFilter( 'template-args', function( template_args ) {
+    App.filter( 'template-args', function( template_args ) {
         template_args.WpakFavorites = WpakFavorites;
 
         return template_args;
     });
 
-    Hooks.addFilter( 'component-custom-type', function( screen_view_data, component ) {
+    App.filter( 'component-custom-type', function( screen_view_data, component ) {
         if( 'favorites' === component.type ) {
             screen_view_data = {
                 view_type: 'favorites',
@@ -34,7 +34,7 @@ define( [ 'core/theme-app', 'core/lib/hooks', 'core/app-utils', 'addons/wpak-add
         return screen_view_data;
     });
 
-    Hooks.addFilter( 'custom-view', function( customView, view_type ) {
+    App.filter( 'custom-view', function( customView, view_type ) {
         if( 'favorites' === view_type ) {
             customView = 'addons/wpak-addon-favorites/js/view';
         }
@@ -42,7 +42,7 @@ define( [ 'core/theme-app', 'core/lib/hooks', 'core/app-utils', 'addons/wpak-add
         return customView;
     });
 
-    Hooks.addAction( 'components-fetched', function( components, response, options, deferred ) {
+    App.action( 'components-fetched', function( components, response, options, deferred ) {
         WpakFavorites.favorites.fetch({
             'success': function( appFavorites, response, options ) {
                 Utils.log( 'Favorites retrieved from local storage.', { favorites: appFavorites } );
