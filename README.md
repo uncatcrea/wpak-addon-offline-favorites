@@ -17,4 +17,4 @@ Here are the css classes that have to be used by the theme so that the _Favorite
 - this "toggle favorite" element must have the **is-favorite** class when the post is "favorite". This class can be auto-set in template by calling the function `<%= WpakFavorites.getIsFavoriteClass( post.id ) %>`
 - if you implement a "Reset favorite" button in the _archive-favorites.html_ template, it should have the class **favorite-reset** to be recognized by the addon.
 
-For an implementation example, see the [Favorites version of Q For Android theme](https://github.com/uncatcrea/q-android).
+For an implementation example, see the [Favorites Demo version of Q For Android theme](https://github.com/mleroi/q-android/tree/feat-favorites).
