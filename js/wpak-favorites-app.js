@@ -1,5 +1,10 @@
 define( [ 'core/theme-app', 'core/app-utils', 'addons/wpak-addon-favorites/js/wpak-favorites' ], function( App, Utils, WpakFavorites ) {
 
+	App.filter( 'preloaded-templates', function( preloaded_templates ) {
+		preloaded_templates.push('archive-favorites');
+		return preloaded_templates;
+	});
+
     App.filter( 'component-data', function( component_data, component ) {
         var component_type = component.get( 'type' );
 
@@ -57,7 +62,7 @@ define( [ 'core/theme-app', 'core/app-utils', 'addons/wpak-addon-favorites/js/wp
     App.action( 'components-fetched', function( components, response, options, deferred ) {
         WpakFavorites.favorites.fetch({
             'success': function( appFavorites, response, options ) {
-                Utils.log( 'Favorites retrieved from local storage.', { favorites: appFavorites } );
+								Utils.log( 'Favorites retrieved from local storage.', { favorites: appFavorites } );
                 deferred.resolve();
             },
             'error': function( appFavorites, response, options ) {
@@ -67,6 +72,7 @@ define( [ 'core/theme-app', 'core/app-utils', 'addons/wpak-addon-favorites/js/wp
         );
     });
 
+		App.on( 'info:app-ready', WpakFavorites.addFavoritesToGlobals );
     App.on( 'refresh:end', WpakFavorites.addFavoritesToGlobals );
 
 });

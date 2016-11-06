@@ -19,20 +19,16 @@ define(function (require) {
      * @param   callable    callback        The callback to call after favorite has been added.
      * @param   string      default_global  The default value to use as global key for this post id.
      */
-    wpak_favorites.addToFavorites = function( id, callback, default_global ) {
+    wpak_favorites.addToFavorites = function( id, default_global ) {
         var item_global = App.getPostGlobal( id, default_global );
         var item = App.getGlobalItem( item_global, id );
-        var saved = false;
 
         if( null !== item ) {
             wpak_favorites.favorites.add( _.extend( { global: item_global }, item ) );
             wpak_favorites.favorites.saveAll();
-            saved = true;
+            Utils.log( 'Favorite added', item );
         }
 
-        if( undefined !== callback ) {
-            callback( saved, id );
-        }
     };
 
     /**
@@ -41,30 +37,21 @@ define(function (require) {
      *
      * @param   int     id              The post id.
      */
-    wpak_favorites.removeFromFavorites = function( id, callback ) {
+    wpak_favorites.removeFromFavorites = function( id ) {
         var item = App.getGlobalItem( App.getPostGlobal( id ), id );
-        var saved = false;
 
         if( null !== item ) {
             wpak_favorites.favorites.remove( item );
             wpak_favorites.favorites.saveAll();
-            saved = true;
-        }
-
-        if( undefined !== callback ) {
-            callback( saved, id );
+            Utils.log( 'Favorite removed', item );
         }
     };
 
     /**
      * Reset the list of favorites.
      */
-    wpak_favorites.resetFavorites = function( callback ) {
+    wpak_favorites.resetFavorites = function() {
         wpak_favorites.favorites.resetAll();
-
-        if( undefined !== callback ) {
-            callback();
-        }
     };
 
     /**
@@ -81,6 +68,16 @@ define(function (require) {
         }
 
         return isFavorite;
+    };
+
+    /**
+     * Return true or false whether the post is in the favorites list or not.
+     *
+     * @param   int     post_id         The post id.
+     * @return  string  favorite_class  'is-favorite' if post is favorite, empty string if not.
+     */
+    wpak_favorites.getIsFavoriteClass = function( post_id ) {
+        return this.isFavorite( post_id ) ? 'is-favorite' : '';
     };
 
     /**

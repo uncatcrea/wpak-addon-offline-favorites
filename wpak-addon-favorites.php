@@ -24,6 +24,7 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
             $addon->add_js( 'js/model.js', 'module' );
             $addon->add_js( 'js/view.js', 'module' );
             $addon->add_js( 'js/wpak-favorites-app.js', 'theme', 'before' );
+			$addon->add_js( 'js/wpak-favorites-functions.js', 'theme', 'before' );
 
             $addon->require_php( dirname(__FILE__) .'/component-type.php' );
 

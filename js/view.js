@@ -11,9 +11,6 @@ define(function (require) {
             ArchiveView.prototype.initialize.apply( this, [args] );
 
             this.setTemplate('archive-favorites');
-
-            this.posts.bind( 'sort', this.render );
-            this.posts.bind( 'reset', this.render );
         },
 
     });
