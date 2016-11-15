@@ -50,6 +50,8 @@ require( [ 'jquery', 'addons/wpak-addon-favorites/js/wpak-favorites', 'core/them
 			ThemeApp.rerenderCurrentScreen();
 		}
 
+		ThemeApp.trigger( 'favorites:toggle:end', { item_id: id, global: global, is_favorite: WpakFavorites.isFavorite( id ), render: render } )
+
 	} );
 
 	/**
