@@ -16,7 +16,7 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
         }
 
         public static function wpak_addons( $addons ) {
-            $addon = new WpakAddon( 'WP AppKit Favorites', self::slug );
+            $addon = new WpakAddon( 'WP AppKit Favorites', self::slug, ['ios','android','pwa'] );
 
             $addon->set_location( __FILE__ );
 
