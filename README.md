@@ -9,7 +9,14 @@ Once the addon is activated for your app, a **new component type** is available:
 the _Favorites_ component type that allows to display a list of all posts marked as _Favorites_ in your app. Create a _Favorites_ component and add it to your app navigation.
 
 Once activated for an App, the _Favorites_ addon handles all the "Add/Remove/List" favorites
-features automatically, provided that the theme uses the right css classes on the elements that handle the _Favorites_ feature.
+features automatically, provided that the theme defines the corresponding template and uses the right css classes on the elements that handle the _Favorites_ feature.
+
+## Custom template archive-favorites.html 
+
+The addon uses a custom archive template to render the favorites list: _archive-favorites.html_. 
+The theme must have this _archive-favorites.html_ template for the addon to work. You can create this template based on your _archive.html_ template, then for example replace the "Get More Posts" button by a "Reset Favorites" button, and replace _TemplateTags.getPostLink(post.id)_ by _TemplateTags.getPostLink(post.id, post.global)_ because we are in a custom template.
+
+## Custom CSS classes
 
 Here are the css classes that have to be used by the theme so that the _Favorites_ addon works well:
 - the element that toggles the favorite state of each post must have the **favorite-toggle** class.
@@ -17,4 +24,4 @@ Here are the css classes that have to be used by the theme so that the _Favorite
 - this "toggle favorite" element must have the **is-favorite** class when the post is "favorite". This class can be auto-set in template by calling the function `<%= WpakFavorites.getIsFavoriteClass( post.id ) %>`
 - if you implement a "Reset favorite" button in the _archive-favorites.html_ template, it should have the class **favorite-reset** to be recognized by the addon.
 
-For an implementation example, see the [Favorites Demo version of Q For Android theme](https://github.com/mleroi/q-android/tree/feat-favorites).
+For an implementation example of this custom _archive-favorites.html_ template and CSS classes, see the [Favorites Demo version of Q For Android theme](https://github.com/mleroi/q-android/tree/feat-favorites).
