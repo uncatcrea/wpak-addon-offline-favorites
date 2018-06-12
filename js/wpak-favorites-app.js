@@ -32,7 +32,8 @@ define( [ 'core/theme-app', 'core/app-utils', 'addons/wpak-addon-favorites/js/wp
             screen_view_data = {
                 view_type: 'favorites',
                 view_data: component.view_data,
-                screen_data: { screen_type: 'list', component_id: component.id, item_id: 0, global: component.global, data: component.data, label: component.label }
+                screen_data: { screen_type: 'list', component_id: component.id, item_id: 0, global: component.global, data: component.data, label: component.label },
+                error: ''
             };
         }
 
