@@ -32,4 +32,4 @@ class WpakComponentTypeFavorites extends WpakComponentType {
 
 }
 
-WpakComponentsTypes::register_component_type( 'favorites', array( 'label' => __( 'Favorites', WpAppKit::i18n_domain ) ) );
+WpakComponentsTypes::register_component_type( 'favorites', array( 'label' => __( 'Offline Favorites', WpAppKit::i18n_domain ) ) );

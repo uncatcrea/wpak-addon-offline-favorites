@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: WP AppKit Favorites Addon
+  Plugin Name: WP-AppKit Offline Favorites Addon
   Description: Add favorites list management module to WP AppKit plugin
   Version: 0.1
  */
@@ -16,7 +16,7 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
         }
 
         public static function wpak_addons( $addons ) {
-            $addon = new WpakAddon( 'WP AppKit Favorites', self::slug, ['ios','android','pwa'] );
+            $addon = new WpakAddon( 'WP-AppKit Offline Favorites', self::slug, ['ios','android','pwa'] );
 
             $addon->set_location( __FILE__ );
 
