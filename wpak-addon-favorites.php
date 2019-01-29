@@ -1,8 +1,8 @@
 <?php
 /*
-  Plugin Name: WP-AppKit Offline Favorites Addon
-  Description: Add favorites list management module to WP AppKit plugin
-  Version: 0.1
+  Plugin Name: Offline Favorites for WP-AppKit
+  Description: Add offline favorites management to WP-AppKit plugin
+  Version: 1.0.0
  */
 
 if ( !class_exists( 'WpAppKitFavorites' ) ) {
@@ -13,10 +13,11 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
 
         public static function hooks() {
             add_filter( 'wpak_addons', array( __CLASS__, 'wpak_addons' ) );
+            add_filter( 'wpak_licenses', array( __CLASS__, 'add_license' ) );
         }
 
         public static function wpak_addons( $addons ) {
-            $addon = new WpakAddon( 'WP-AppKit Offline Favorites', self::slug, ['ios','android','pwa'] );
+            $addon = new WpakAddon( 'Offline Favorites for WP-AppKit', self::slug, ['ios','android','pwa'] );
 
             $addon->set_location( __FILE__ );
 
@@ -31,6 +32,16 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
             $addons[] = $addon;
 
             return $addons;
+        }
+
+        public static function add_license( $licenses ) {
+            $licenses[] = array(
+                'file' => __FILE__,
+                'item_name' => 'Offline Favorites for WP-AppKit',
+                'version' => '1.0.0',
+                'author' => 'Uncategorized Creations',
+            );
+            return $licenses;
         }
 
     }
