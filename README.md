@@ -1,10 +1,10 @@
 # Addon "Offline Favorites for WP-AppKit"
 This addon allows to manage offline favorites in your WP-AppKit app: set some posts as favorite to read them later, even if all app content has been refreshed in the meantime.
 
-This addon is compatible out of the box with the **Q for Android** theme (as of version 1.2.0 of the theme). If you need to use it in an other theme, see the following section "Use the Offline Favorites addon feature in your own theme".
+This addon is compatible out of the box with the **Q for Android** default theme (as of version 1.2.0 of the theme). If you need to use it in an other theme, see the following section "Use the Offline Favorites addon feature in your own theme".
 
 ## Install
-Install this addon as you would install any WordPress Plugin, then in your WP-AppKit App edit panel, check the "Offline Favorites for WP-AppKit" addon checkbox in the "Addons" panel (at the bottom of the screen), then save the App.
+Install this addon as you would install any WordPress Plugin, then in your WP-AppKit app edit panel, check the "Offline Favorites for WP-AppKit" addon checkbox in the "Addons" panel (at the bottom of the screen), then save the app.
 
 Once the addon is activated for your app, a **new component type** is available: the **Favorites** component type that allows to display a list of all posts marked as _Favorites_ in your app. 
 
