@@ -21,7 +21,9 @@ Posts that are marked as favorites will stay in the app as long as you don't un-
 
 ## Use the Offline Favorites addon feature in your own theme
 
-Once activated for an app, the _Favorites_ addon handles all the "Add/Remove/List" favorites features automatically, provided that the theme defines the corresponding template and uses the right css classes on the elements that handle the _Favorites_ feature. The theme "Q for Android" already implements those 
+Once activated for an app, the Favorites addon handles all the "Add/Remove/List" favorites features automatically, provided that the theme defines the corresponding template and uses the right CSS classes on the elements that handle the Favorites feature.
+
+The theme "Q for Android" already implements those Favorites template and CSS classes. Here is how to add them to your own theme to make it Favorites ready: 
 
 ### Custom template archive-favorites.html 
 
