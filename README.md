@@ -26,12 +26,14 @@ Once activated for an app, the _Favorites_ addon handles all the "Add/Remove/Lis
 ### Custom template archive-favorites.html 
 
 The addon uses a custom archive template to render the favorites list: _archive-favorites.html_. 
-The theme must have this _archive-favorites.html_ template for the addon to work. You can create this template based on your _archive.html_ template, then for example replace the "Get More Posts" button by a "Reset Favorites" button, and replace _TemplateTags.getPostLink(post.id)_ by _TemplateTags.getPostLink(post.id, post.global)_ because we are in a custom template.
+The theme must have this _archive-favorites.html_ template for the addon to work. You can create this template based on your _archive.html_ template, then for example:
+- replace the "Get More Posts" button by a "Reset Favorites" button, 
+- and replace _TemplateTags.getPostLink(post.id)_ by _TemplateTags.getPostLink(post.id, **post.global**)_ because we are in a custom template where post global is not automatically set.
 
 ### Custom CSS classes
 
-Here are the css classes that have to be used by the theme so that the _Favorites_ addon works well:
-- the element that toggles the favorite state of each post must have the **favorite-toggle** class.
+Here are the css classes that have to be used by the theme (in archive, single and archive-favorites templates) so that the _Favorites_ addon works well:
+- the element that toggles the favorite state of each post (a star icon for example) must have the **favorite-toggle** class.
 - this "toggle favorite" element must also have the WP-AppKit post "data" attributes that are retrieved automatically by the function `TemplateTags.getPostDataAttributes( post.id )`.
 - this "toggle favorite" element must have the **is-favorite** class when the post is "favorite". This class can be auto-set in template by calling the function `<%= WpakFavorites.getIsFavoriteClass( post.id ) %>`
 - if you implement a "Reset favorite" button in the _archive-favorites.html_ template, it should have the class **favorite-reset** to be recognized by the addon.
