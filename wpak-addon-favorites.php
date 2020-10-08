@@ -25,7 +25,7 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
         }
 
         public static function wpak_addons( $addons ) {
-            $addon = new WpakAddon( 'Offline Favorites for WP-AppKit', self::slug, ['ios','android','pwa'] );
+            $addon = new WpakAddon( 'Offline Favorites for WP-AppKit', self::slug, ['ios','android','pwa','android-cordova','android-voltbuilder'] );
 
             $addon->set_location( __FILE__ );
 
@@ -33,7 +33,7 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
             $addon->add_js( 'js/model.js', 'module' );
             $addon->add_js( 'js/view.js', 'module' );
             $addon->add_js( 'js/wpak-favorites-app.js', 'theme', 'before' );
-			$addon->add_js( 'js/wpak-favorites-functions.js', 'theme', 'before' );
+			      $addon->add_js( 'js/wpak-favorites-functions.js', 'theme', 'before' );
 
             $addon->require_php( dirname(__FILE__) .'/component-type.php' );
 
@@ -46,7 +46,7 @@ if ( !class_exists( 'WpAppKitFavorites' ) ) {
             $licenses[] = array(
                 'file' => __FILE__,
                 'item_name' => 'Offline Favorites for WP-AppKit',
-                'version' => '1.0.0',
+                'version' => '1.0.1',
                 'author' => 'Uncategorized Creations',
             );
             return $licenses;
